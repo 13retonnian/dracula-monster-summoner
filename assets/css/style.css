@@ -1,0 +1,40 @@
+html {
+  background-image: url('../img/Dracula.JPG');
+  background-color: black;
+  background-repeat: no-repeat;		
+	background-position: top;	
+	background-size: cover;
+	height: 100vh; 
+  background-attachment: fixed;
+  font-family: 'IM Fell English SC', serif;
+  color: red;
+}
+h1{
+  text-align: center;
+  font-size: 50px;
+}
+.summon-button {
+  background-color: hsla(200, 40%, 50%, 0.7);
+  color: red;
+  display: block;
+  margin: 0 auto;
+  height: 50px;
+  width: 200px;
+  font-size: 40px;
+  font-family: 'IM Fell English SC', serif;
+}
+.monster-container {
+  background-color: hsla(0,0,0,0.7);
+  border-style: double;
+  border-width: 4px;
+  border: darkgrey;
+  text-align: center;
+  font-size: x-large;
+  margin: 30px;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  height: 60vh;   
+  text-align: center;
+}
