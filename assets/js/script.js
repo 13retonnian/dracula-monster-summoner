@@ -35,7 +35,10 @@ const getTimeAndDate = function(){
   timeAndDateContainer.innerHTML = currDate;
 }
 const outputMonster = function(monster) {  
-  monsterContainer.innerHTML = `<h2>Dracula has summoned a <a href="https://www.dndbeyond.com/monsters/${monster.name}">${monster.name}</a>. It is a ${monster.size} sized creature. ${determineProperResponse(monster)}</h2>`;  
+  //have to replace spaces with dashes to get the proper web page
+  let dashMonster = monster.name.replaceAll(" ", "-");
+  dashMonster = dashMonster.replaceAll("%20", "-");
+  monsterContainer.innerHTML = `<h2>Dracula has summoned a <a href="https://www.dndbeyond.com/monsters/${dashMonster}">${monster.name}</a>. It is a ${monster.size} sized creature. ${determineProperResponse(monster)}</h2>`;  
 }
 const displayError = function() {
   monsterContainer.innerHTML = `<h2>An error has occured, please try again.</h2>`;  
