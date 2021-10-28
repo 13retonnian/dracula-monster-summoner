@@ -37,6 +37,9 @@ img {
   margin: 0 auto;
   height: 60vh;   
   text-align: center;
+  border: red;
+  border-style: double;
+  border-width: 7px;
 }
 .time-and-date {
   position: fixed;
