@@ -51,6 +51,9 @@ const outputMonster = function(monster) {
   monsterContainer.innerHTML = `<h2>Dracula has summoned a <a href="https://www.dndbeyond.com/monsters/${monster.name}">${monster.name}</a>. It is a ${monster.size} sized creature. ${determineProperResponse(monster)}</h2>`;
   //getTimeAndDate();
 }
+const displayError = function() {
+  monsterContainer.innerHTML = `<h2>An error has occured, please try again.</h2>`;  
+}
 const summonHellHound = function() {
   fetch('https://random.dog/woof.json')
     .then(function(response){
@@ -66,6 +69,7 @@ const summonHellHound = function() {
     })
     .catch(function(err){
       // An error or `reject` from any of the above `.then()` blocks will end up here.
+      displayError();
       console.log(err);
     });
 }
@@ -92,6 +96,7 @@ const fetchMonster = function() {
     })
     .catch(function(err) {
       // An error or `reject` from any of the above `.then()` blocks will end up here.
+      displayError();
       console.log(err);
     });
 }
@@ -110,6 +115,7 @@ const fetchMonsterStats = function(monsterURL) {
     })
     .catch(function(err) {
       // An error or `reject` from any of the above `.then()` blocks will end up here.
+      displayError();
       console.log(err);
     });   
 }
