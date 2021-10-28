@@ -1,7 +1,9 @@
 const monsterContainer = document.querySelector(".monster-container");
+const timeAndDateContainer = document.querySelector(".time-and-date");
 let monsterNumber = 0;
 let monsterName = "";
 let challengeRating = 0;
+let currDate = "";
 const generateMonsterNumber = function() {
   monsterNumber = Math.floor(Math.random() * 500);
   return monsterNumber;
@@ -27,29 +29,13 @@ const determineProperResponse = function(monster){
     return "Prepare to be turned into space dust."
   }
 }
-//this didn't work
-// const getTimeAndDate = function(){
-//   fetch('https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810%2C-119.6822510&timestamp=1331766000&key=YOUR_API_KEY')
-//     .then(function(response){
-//       // JSON that is returned from the server must be converted to a JS object asynchronously.
-//       if (!response.ok) {
-//         throw new Error('Not 200 OK');
-//       }
-//       return response.json();
-//     })
-//     .then(function(data){
-//       // Any code that depends on the `data` must go in this block  
-//       console.log(data);
-//     })
-//     .catch(function(err){
-//       // An error or `reject` from any of the above `.then()` blocks will end up here.
-//       console.log(err);
-//     });  
-// }
-const outputMonster = function(monster) {
-  console.log(monster);
-  monsterContainer.innerHTML = `<h2>Dracula has summoned a <a href="https://www.dndbeyond.com/monsters/${monster.name}">${monster.name}</a>. It is a ${monster.size} sized creature. ${determineProperResponse(monster)}</h2>`;
-  //getTimeAndDate();
+const getTimeAndDate = function(){
+  currDate = new Date();  
+  currDate.toLocaleDateString("en-US");    
+  timeAndDateContainer.innerHTML = currDate;
+}
+const outputMonster = function(monster) {  
+  monsterContainer.innerHTML = `<h2>Dracula has summoned a <a href="https://www.dndbeyond.com/monsters/${monster.name}">${monster.name}</a>. It is a ${monster.size} sized creature. ${determineProperResponse(monster)}</h2>`;  
 }
 const displayError = function() {
   monsterContainer.innerHTML = `<h2>An error has occured, please try again.</h2>`;  
@@ -121,4 +107,5 @@ const fetchMonsterStats = function(monsterURL) {
 }
   const summonButton = document.querySelector(".summon-button");
   summonButton.addEventListener("click", fetchMonster);
+  getTimeAndDate();
   
